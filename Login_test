@@ -1,0 +1,35 @@
+from selenium import webdriver
+import unittest
+from WFC_POM.Pages.loginpage import loginPage
+
+
+class LoginTest(unittest.TestCase):
+
+    @classmethod
+    def setUpClass(cls) -> None:
+        cls.driver = webdriver.Chrome(executable_path="/home/abdullah/Downloads/chromedriver_linux64 (1)/chromedriver")
+        cls.driver.implicitly_wait(5)
+        cls.driver.maximize_window()
+
+    def test_login_valid(self):
+        driver = self.driver
+        driver.get("Input here your website address")
+
+        login = loginPage(driver)
+        login.enter_signin_button()
+        login.enter_username("abc")
+        login.enter_password("abc123456AA")
+
+
+            
+
+
+
+    @classmethod
+    def tearDownClass(cls) -> None:
+        cls.driver.close()
+        cls.driver.quit()
+        print("Test Completed")
+
+if __name__ == '__main__':
+    unittest.main()
