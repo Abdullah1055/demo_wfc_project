@@ -1,7 +1,7 @@
 class locators():
 
     # base url
-    wfc_url = "http://wf-dev.ctrends-software.com/auth/workforce"
+    wfc_url = "input here website links"
 
     ##################### login Page Objects #####################
 
