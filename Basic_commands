@@ -1,0 +1,55 @@
+from selenium import webdriver
+import time
+import unittest
+from selenium.webdriver.common.by import By
+
+class LoginTest(unittest.TestCase):
+
+    @classmethod
+    def setUpClass(cls) -> None:
+        cls.driver = webdriver.Chrome(executable_path="/home/abdullah/Downloads/chromedriver_linux64 (1)/chromedriver")
+        cls.driver.implicitly_wait(5)
+        cls.driver.maximize_window()
+
+    def test_login_valid(self):
+        self.driver.get("Input here your website address")
+        self.driver.find_element(By.PARTIAL_LINK_TEXT, 'Sign').click()
+
+        #find_element  for Login
+        self.driver.find_element(By.XPATH, "//input[@id='mat-input-0']").send_keys('zia')
+        self.driver.find_element(By.XPATH, "//input[@id='mat-input-1']").send_keys('abc123456AA')
+        self.driver.find_element(By.XPATH, "//span[@class='mat-button-wrapper']").click()
+        self.driver.find_element(By.XPATH, "//img[@id='user-img-img-raised']").click()
+        # self.driver.find_element(By.XPATH, "//span[normalize-space()='Sign Out']").click()
+
+        # find_element for SignUp
+        # self.driver.find_element(By.XPATH, "//a[normalize-space()='Sign Up']").click()
+        # self.driver.find_element(By.ID, "mat-input-4").send_keys("Mr Rahim")
+        # self.driver.find_element(By.ID, "mat-input-5").send_keys("rahim")
+        # self.driver.find_element(By.ID, "mat-input-6").send_keys("01689062047")
+        # self.driver.find_element(By.ID, "mat-input-7").send_keys("mrk3218+1@gmail.com")
+        # # self.driver.find_element(By.ID, "mat-input-8").send_keys(11/16/2022)
+        # # self.driver.find_element(By.ID, "mat-input-9").send_keys("Niketan")
+
+        # find_element for change request
+        self.driver.find_element(By.XPATH, "//span[normalize-space()='Project Management']").click()
+        self.driver.find_element(By.XPATH, "//span[normalize-space()='Data Entry and Processing']").click()
+        self.driver.find_element(By.XPATH, "//span[contains(text(),'Change Request')]").click()
+        self.driver.find_element(By.XPATH, "//mat-icon[normalize-space()='search']").click()
+        self.driver.find_element(By.XPATH, "//span[@class='mat-button-wrapper']//mat-icon[@role='img'][normalize-space()='search']").click()
+        self.driver.find_element(By.XPATH, "//td[normalize-space()='BTRCL Haor-Baor Broadband WiFi Project']").click()
+        self.driver.find_element(By.XPATH, "//img[@class='body-head-img']").click()
+
+
+
+
+
+    @classmethod
+    def tearDownClass(cls) -> None:
+        cls.driver.implicitly_wait(10)
+        cls.driver.close()
+        cls.driver.quit()
+        print("Test Completed")
+
+if __name__ == '__main__':
+    unittest.main()
