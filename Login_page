@@ -1,0 +1,23 @@
+from selenium.webdriver.common.by import By
+from WFC_POM.locators.locators import locators
+
+class loginPage():
+
+    def __init__(self, driver):
+        self.driver = driver
+        self.signin_button = locators.signin_button
+        self.username_textbox_xpath = locators.username_textbox_xpath
+        self.password_textbox_xpath = locators.password_textbox_xpath
+        self.login_button_xpath = locators.login_button_xpath
+
+    def enter_signin_button(self):
+        self.driver.find_element(By.PARTIAL_LINK_TEXT, self.signin_button).click()
+
+    def enter_username(self, username):
+        self.driver.find_element(By.XPATH, self.username_textbox_xpath).send_keys(username)
+
+    def enter_password(self, password):
+        self.driver.find_element(By.XPATH, self.password_textbox_xpath).send_keys(password)
+
+    def click_login(self):
+        self.driver.find_element(By.XPATH, self.login_button_xpath).click()
