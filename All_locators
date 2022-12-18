@@ -1,0 +1,28 @@
+class locators():
+
+    # base url
+    wfc_url = "http://wf-dev.ctrends-software.com/auth/workforce"
+
+    ##################### login Page Objects #####################
+
+    signin_button = "Sign"
+    username_textbox_xpath = "//input[@id='mat-input-0']"
+    password_textbox_xpath = "//input[@id='mat-input-1']"
+    login_button_xpath = "//span[@class='mat-button-wrapper']"
+
+    ##################  signup page objects #####################
+
+    # signin1_button = "//a[normalize-space()='Sign In']"
+    click_signup_button_xpath = "//a[normalize-space()='Sign Up']"
+    # upload_image_button_xpath = "//div[contains(text(),'Upload your photo')]"
+    input_Fullname_id = "mat-input-4"
+    input_username_id = "mat-input-5"
+    input_mobile_id = "mat-input-6"
+    input_email_id = "mat-input-7"
+    # input_dob_xpath = "//*[name()='path' and contains(@d,'M19 3h-1V1')]"
+    # input_gender_id = "mat-select-value-1"
+    # input_address_id = "mat-input-5"
+
+
+
+
