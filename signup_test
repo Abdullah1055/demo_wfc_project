@@ -1,0 +1,39 @@
+from selenium import webdriver
+import unittest
+from WFC_POM.Pages.signuppage import signuppage
+
+class signupTest(unittest.TestCase):
+
+    @classmethod
+    def setUpClass(cls) -> None:
+        cls.driver = webdriver.Chrome(executable_path="/home/abdullah/Downloads/chromedriver_linux64 (1)/chromedriver")
+        cls.driver.implicitly_wait(5)
+        cls.driver.maximize_window()
+
+    def test_signup_valid(self):
+        driver = self.driver
+        driver.get("Input here your website address")
+
+        signup = signuppage(driver)
+        signup.enter_signin_button()
+        signup.click_signup_button()
+        signup.input_fullname("Mr Rahim")
+        signup.input_username("rahim")
+        signup.input_mobile_no("01689062047")
+        signup.input_email("aceb@gmail.com")
+        # signup.input_dob("22/01/22")
+        # signup.input_gender("Male")
+        # signup.input_address("Niketan")
+        # login.enter_username("zia")
+        # login.enter_password("abc123456AA")
+
+
+
+    @classmethod
+    def tearDownClass(cls) -> None:
+        cls.driver.close()
+        cls.driver.quit()
+        print("Test Completed")
+
+if __name__ == '__main__':
+    unittest.main()
