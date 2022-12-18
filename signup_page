@@ -1,0 +1,43 @@
+from selenium.webdriver.common.by import By
+from WFC_POM.locators.locators import locators
+
+class signuppage():
+
+    def __init__(self, driver):
+        self.driver = driver
+        self.signin_button = locators.signin_button
+        self.click_signup_button_xpath = locators.click_signup_button_xpath
+        self.input_fullname_id = locators.input_Fullname_id
+        self.input_username_id = locators.input_username_id
+        self.input_mobile_id = locators.input_mobile_id
+        self.input_email_id = locators.input_email_id
+        # self.input_dob_xpath = locators.input_dob_xpath
+        # self.input_gender_id = locators.input_gender_id
+        # self.input_address_id = locators.input_address_id
+
+    def enter_signin_button(self):
+        self.driver.find_element(By.PARTIAL_LINK_TEXT, self.signin_button).click()
+
+    def click_signup_button(self):
+        self.driver.find_element(By.XPATH, self.click_signup_button_xpath).click()
+
+    def input_fullname(self, fullname):
+        self.driver.find_element(By.ID, self.input_fullname_id).send_keys(fullname)
+
+    def input_username(self, username):
+        self.driver.find_element(By.ID, self.input_username_id).send_keys(username)
+
+    def input_mobile_no(self, mobile):
+        self.driver.find_element(By.ID, self.input_mobile_id).send_keys(mobile)
+
+    def input_email(self, email):
+        self.driver.find_element(By.ID, self.input_email_id).send_keys(email)
+
+    # def input_dob(self, dob):
+    #     self.driver.find_element(By.XPATH, self.input_dob_xpath).send_keys(dob)
+    #
+    # def input_gender(self, gender):
+    #     self.driver.find_element(By.ID, self.input_gender_id).send_keys(gender)
+    #
+    # def input_address(self, address):
+    #     self.driver.find_element(By.ID, self.input_address_id).send_keys(address)
