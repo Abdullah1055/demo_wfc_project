@@ -1,5 +1,8 @@
 from selenium import webdriver
+import time
 import unittest
+from WFC_POM.locators.locators import locators, valid_username, valid_password, main_url, invalid_username, \
+    invalid_password
 from WFC_POM.Pages.loginpage import loginPage
 
 
@@ -13,22 +16,54 @@ class LoginTest(unittest.TestCase):
 
     def test_login_valid(self):
         driver = self.driver
-        driver.get("Input here your website address")
+        driver.get("http://wf-dev.ctrends-software.com/auth/workforce")
 
         login = loginPage(driver)
         login.enter_signin_button()
-        login.enter_username("abc")
-        login.enter_password("abc123456AA")
+        login.enter_username = valid_username
+        login.enter_password = valid_password
+        login.click_login()
+
+    def test_login_invalid(self):
+        driver = self.driver
+        driver.get("http://wf-dev.ctrends-software.com/auth/workforce")
+
+        login = loginPage(driver)
+        login.enter_signin_button()
+        login.enter_username = invalid_username
+        login.enter_password = invalid_password
+        login.click_login()
+
+
+    def test_login_validuser_invalidpass(self):
+        driver = self.driver
+        driver.get("http://wf-dev.ctrends-software.com/auth/workforce")
+
+        login = loginPage(driver)
+        login.enter_signin_button()
+        login.enter_username = valid_username
+        login.enter_password = invalid_password
+        login.click_login()
+     
+
+    def test_login_invaliduser_validpass(self):
+        driver = self.driver
+        driver.get("http://wf-dev.ctrends-software.com/auth/workforce")
+
+        login = loginPage(driver)
+        login.enter_signin_button()
+        login.enter_username = invalid_username
+        login.enter_password = valid_password
+        login.click_login()
+
 
 
             
-
-
-
     @classmethod
     def tearDownClass(cls) -> None:
-        cls.driver.close()
-        cls.driver.quit()
+        cls.driver.implicitly_wait(5)
+        # cls.driver.close()
+        # cls.driver.quit()
         print("Test Completed")
 
 if __name__ == '__main__':
