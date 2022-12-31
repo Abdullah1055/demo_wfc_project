@@ -1,7 +1,16 @@
+# base url
+main_url = "http://wf-dev.ctrends-software.com/auth/workforce"
+
+############################## username and Password #############
+valid_username = "put here valid username"
+valid_password = "put here valid password"
+invalid_username = "test12344"
+invalid_password = "test87634444DD"
+
+
+
 class locators():
 
-    # base url
-    wfc_url = "input here website links"
 
     ##################### login Page Objects #####################
 
@@ -22,6 +31,14 @@ class locators():
     # input_dob_xpath = "//*[name()='path' and contains(@d,'M19 3h-1V1')]"
     # input_gender_id = "mat-select-value-1"
     # input_address_id = "mat-input-5"
+
+    ################# Create Transportation orders ####################
+    click_logistic_operation_xpath = "//span[normalize-space()='Logistic Operation']"
+    click_data_entry_xpath = "//span[normalize-space()='Data Entry and Processing']"
+    click_place_to_order_xpath = "//span[contains(text(),'Place Transportation Orders')]"
+    click_create_order_xpath = "//span[normalize-space()='Create Order']"
+    select_project_id = "mat-select-value-3"
+
 
 
 
