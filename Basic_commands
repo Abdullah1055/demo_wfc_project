@@ -1,5 +1,5 @@
 from selenium import webdriver
-import time
+from selenium.webdriver.support.ui import Select
 import unittest
 from selenium.webdriver.common.by import By
 
@@ -12,7 +12,7 @@ class LoginTest(unittest.TestCase):
         cls.driver.maximize_window()
 
     def test_login_valid(self):
-        self.driver.get("Input here your website address")
+        self.driver.get("http://wf-dev.ctrends-software.com/auth/workforce")
         self.driver.find_element(By.PARTIAL_LINK_TEXT, 'Sign').click()
 
         #find_element  for Login
@@ -31,14 +31,48 @@ class LoginTest(unittest.TestCase):
         # # self.driver.find_element(By.ID, "mat-input-8").send_keys(11/16/2022)
         # # self.driver.find_element(By.ID, "mat-input-9").send_keys("Niketan")
 
+        ############## Esential Code @@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+
+        # message = response.get("message", "")
+        # screen: str = response.get("screen", "")
+        # stacktrace = None
+        # if isinstance(status, int):
+        #     value_json = response.get("value", None)
+        #     if value_json and isinstance(value_json, str):
+        #         import json
+        #
+        #         try:
+        #             value = json.loads(value_json)
+        #             if len(value.keys()) == 1:
+        #                 value = value("value")
+        #             status = value.get("error", None)
+        #             if not status:
+        #                 status = value.get("status", ErrorCode.UNKNOWN_ERROR)
+        #                 message = value.get("value") or value.get("message")
+        #                 if not isinstance(message, str):
+        #                     value = message
+        #                     message = message.get("message")
+        #             else:
+        #                 message = value.get("message", None)
+        #         except ValueError:
+        #             pass
+
         # find_element for change request
-        self.driver.find_element(By.XPATH, "//span[normalize-space()='Project Management']").click()
+        # self.driver.find_element(By.XPATH, "//span[normalize-space()='Project Management']").click()
+        # self.driver.find_element(By.XPATH, "//span[normalize-space()='Data Entry and Processing']").click()
+        # self.driver.find_element(By.XPATH, "//span[contains(text(),'Change Request')]").click()
+        # self.driver.find_element(By.XPATH, "//mat-icon[normalize-space()='search']").click()
+        # self.driver.find_element(By.XPATH, "//span[@class='mat-button-wrapper']//mat-icon[@role='img'][normalize-space()='search']").click()
+        # self.driver.find_element(By.XPATH, "//td[normalize-space()='BTRCL Haor-Baor Broadband WiFi Project']").click()
+        # self.driver.find_element(By.XPATH, "//img[@class='body-head-img']").click()
+
+        # Create Transportation Order
+        self.driver.find_element(By.XPATH, "//span[normalize-space()='Logistic Operation']").click()
         self.driver.find_element(By.XPATH, "//span[normalize-space()='Data Entry and Processing']").click()
-        self.driver.find_element(By.XPATH, "//span[contains(text(),'Change Request')]").click()
-        self.driver.find_element(By.XPATH, "//mat-icon[normalize-space()='search']").click()
-        self.driver.find_element(By.XPATH, "//span[@class='mat-button-wrapper']//mat-icon[@role='img'][normalize-space()='search']").click()
-        self.driver.find_element(By.XPATH, "//td[normalize-space()='BTRCL Haor-Baor Broadband WiFi Project']").click()
-        self.driver.find_element(By.XPATH, "//img[@class='body-head-img']").click()
+        self.driver.find_element(By.XPATH, "//span[contains(text(),'Place Transportation Orders')]").click()
+        self.driver.find_element(By.XPATH, "//span[normalize-space()='Create Order']").click()
+        self.driver.find_element(By.XPATH, "//span[@class='mat-select-placeholder mat-select-min-line ng-tns-c334-110 ng-star-inserted']").click()
+        # self.driver.find_element(By.XPATH, "//span[normalize-space()='BTRCL Haor-Baor Broadband WiFi Project']").click()
 
 
 
